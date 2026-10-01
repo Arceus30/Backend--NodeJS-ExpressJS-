@@ -1,0 +1,20 @@
+{
+  "name": "24_mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "single-start": "node singleConnectionServer.js",
+    "pool-start": "node poolServer.js",
+    "migrate:latest": "node migration/migrationRunner",
+    "migrate:rollback": "node migration/migrationRollback"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^18.0.1",
+    "mysql2": "^3.24.4"
+  }
+}

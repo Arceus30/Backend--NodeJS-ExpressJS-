@@ -1,0 +1,31 @@
+{
+  "name": "24_mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "migrate:latest": "npx knex migrate:latest --env development",
+    "migrate:rollback": "npx knex migrate:rollback --env development",
+    "migrate-test:latest": "npx knex migrate:latest --env test",
+    "migrate-test:rollback": "npx knex migrate:rollback --env test",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^18.0.3",
+    "express": "^5.2.1",
+    "knex": "^3.3.0",
+    "mysql2": "^3.24.4",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^5.0.1",
+    "supertest": "^7.3.0",
+    "vitest": "^5.0.1"
+  }
+}
