@@ -1,0 +1,49 @@
+# Dependencies
+
+node_modules/
+
+# Environment variables
+
+.env
+.env.*
+!.env.example
+
+# Logs
+
+*.log
+logs/
+
+# Runtime files
+
+*.pid
+*.pid.lock
+
+# Coverage
+
+coverage/
+.nyc_output/
+
+# Build/output directories
+
+dist/
+build/
+
+# OS generated files
+
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+
+.vscode/
+.idea/
+
+# Temporary files
+
+*.tmp
+*.temp
+
+# MongoDB local data (if stored inside the project)
+
+data/
+mongodb-data/
