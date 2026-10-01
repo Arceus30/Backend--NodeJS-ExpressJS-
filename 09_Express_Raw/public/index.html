@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Image Upload</title>
+    </head>
+
+    <body>
+        <h1>Upload Image</h1>
+
+        <input type="file" id="imageInput" accept="image/*" />
+
+        <button id="uploadBtn">Upload</button>
+
+        <script>
+            const input = document.getElementById("imageInput");
+            const button = document.getElementById("uploadBtn");
+
+            button.addEventListener("click", async () => {
+                const file = input.files[0];
+
+                if (!file) {
+                    alert("Please select an image");
+                    return;
+                }
+
+                const response = await fetch("/upload", {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": file.type,
+                    },
+
+                    body: file,
+                });
+
+                window.location.href = response.url;
+
+                // fetch follows the redirect automatically
+                console.log("Upload complete");
+            });
+        </script>
+    </body>
+</html>
