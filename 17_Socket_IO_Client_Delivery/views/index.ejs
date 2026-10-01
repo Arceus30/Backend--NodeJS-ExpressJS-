@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%= title%></title>
+    </head>
+
+    <body>
+        <h1><%= title %></h1>
+        <p id="status">Connecting...</p>
+        <div>
+            <input
+                id="messageInput"
+                type="text"
+                placeholder="Enter a message"
+            />
+            <label>
+                <input id="simulateLostAck" type="checkbox" />
+                Simulate lost ACK
+            </label>
+            <button id="sendButton">Send Message</button>
+            <button id="retryTestButton">Send Same ID Again</button>
+        </div>
+        <h3>Delivery Log</h3>
+        <ul id="deliveryLog"></ul>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="module" src="/js/index.js"></script>
+    </body>
+</html>
