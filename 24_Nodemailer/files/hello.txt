@@ -1,0 +1,2 @@
+Hello from Nodemailer!
+This is an email attachment.
