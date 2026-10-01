@@ -1,0 +1,26 @@
+{
+  "name": "15_socket_io_room",
+  "version": "1.0.0",
+  "description": "Learning project exploring Socket.IO rooms, messaging, presence, persistence, acknowledgements, reconnection, and connection state recovery",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "socket.io",
+    "websockets",
+    "rooms",
+    "real-time"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Socket.IO Room Chat</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <main>
+            <h1>Socket.IO Room Chat</h1>
+            <section>
+                <label> Username </label>
+                <input id="username" placeholder="Enter username" />
+            </section>
+            <section>
+                <label> Room </label>
+                <input id="room" placeholder="Enter room name" />
+                <button id="join">Join Room</button>
+                <button id="leave">Leave Room</button>
+            </section>
+            <section>
+                <h2>Current Room</h2>
+                <p>
+                    Room:
+                    <span id="currentRoom">None</span>
+                </p>
+                <p>
+                    Members:
+                    <span id="memberCount">0</span>
+                </p>
+            </section>
+            <section>
+                <h2>Available Rooms</h2>
+                <ul id="availableRooms"></ul>
+            </section>
+            <section>
+                <h2>Room Users</h2>
+                <ul id="roomUsers"></ul>
+            </section>
+            <section>
+                <h2>Private Message</h2>
+                <p>
+                    Selected user:
+                    <span id="selectedUser">None</span>
+                </p>
+                <input
+                    id="privateMessage"
+                    placeholder="Enter private message"
+                />
+                <button id="sendPrivateMessageBtn" type="button" disabled>
+                    Send Private Message
+                </button>
+            </section>
+            <section>
+                <h2>Messages</h2>
+                <ul id="messages"></ul>
+            </section>
+            <section>
+                <input id="message" placeholder="Enter message" />
+                <button id="send" type="button" disabled>Send</button>
+                <button id="sendExceptToRoomBtn" type="button" disabled>
+                    Send to Everyone Outside Room
+                </button>
+            </section>
+            <p id="typingIndicator"></p>
+        </main>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="module" src="/js/index.js"></script>
+    </body>
+</html>
