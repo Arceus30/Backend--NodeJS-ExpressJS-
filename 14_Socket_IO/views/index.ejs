@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Socket.IO chat</title>
+        <link rel="stylesheet" href="/css/styles.css" />
+    </head>
+
+    <body>
+        <main id="appLayout">
+            <!-- =====================================================
+            LEFT SIDE
+            New multi-type data experiment
+            ===================================================== -->
+            <section id="newWorkspace">
+                <header class="workspaceHeader">
+                    <h1>Data Transfer Lab</h1>
+                    <p>Text, URLs, images, videos, audio and files</p>
+                </header>
+                <!-- New: Multi-Type Data Form -->
+                <section id="dataFormSection">
+                    <h2>Send Different Types of Data</h2>
+                    <form id="dataForm">
+                        <!-- Text -->
+                        <div class="formField">
+                            <label for="dataText">Text</label>
+                            <input
+                                id="dataText"
+                                name="text"
+                                type="text"
+                                placeholder="Enter some text..."
+                            />
+                        </div>
+                        <!-- URL -->
+                        <div class="formField">
+                            <label for="dataUrl">URL</label>
+                            <input
+                                id="dataUrl"
+                                name="url"
+                                type="url"
+                                placeholder="https://example.com"
+                            />
+                        </div>
+                        <!-- Image -->
+                        <div class="formField">
+                            <label for="dataImage">Image</label>
+                            <input
+                                id="dataImage"
+                                name="image"
+                                type="file"
+                                accept="image/*"
+                            />
+                        </div>
+                        <!-- Video -->
+                        <div class="formField">
+                            <label for="dataVideo">Video</label>
+                            <input
+                                id="dataVideo"
+                                name="video"
+                                type="file"
+                                accept="video/*"
+                            />
+                        </div>
+                        <!-- Audio -->
+                        <div class="formField">
+                            <label for="dataAudio">Audio</label>
+                            <input
+                                id="dataAudio"
+                                name="audio"
+                                type="file"
+                                accept="audio/*"
+                            />
+                        </div>
+                        <!-- Generic File -->
+                        <div class="formField">
+                            <label for="dataFile">File</label>
+                            <input id="dataFile" name="file" type="file" />
+                        </div>
+                        <!-- Multiple Files -->
+                        <div class="formField formFieldFull">
+                            <label for="dataFiles">Multiple Files</label>
+                            <input
+                                id="dataFiles"
+                                name="files"
+                                type="file"
+                                multiple
+                            />
+                        </div>
+                        <button id="sendDataBtn" type="submit" disabled>
+                            Send Data
+                        </button>
+                    </form>
+                </section>
+
+                <header class="workspaceHeader">
+                    <h1>Existing Socket.IO Lab</h1>
+                    <p>
+                        Existing messages, broadcasts, acknowledgements and CSR
+                    </p>
+                </header>
+
+                <div id="controls">
+                    <!-- Message input -->
+                    <input
+                        id="input"
+                        autocomplete="off"
+                        placeholder="Type a message..."
+                        disabled
+                    />
+                    <div id="messageControls">
+                        <button id="sendAllBtn" type="button" disabled>
+                            Send (Broadcast All)
+                        </button>
+
+                        <button id="sendOthersBtn" type="button" disabled>
+                            Send (Broadcast but No Sender)
+                        </button>
+
+                        <button id="sendSenderBtn" type="button" disabled>
+                            Send (Only Sender)
+                        </button>
+                        <button id="csrTestStartBtn" type="button" disabled>
+                            CSR Start Test
+                        </button>
+                        <button id="csrTestStopBtn" type="button" disabled>
+                            CSR Stop Test
+                        </button>
+                        <button id="sendAckBtn" type="button" disabled>
+                            Send Ack
+                        </button>
+                        <button id="receiveAckBtn" type="button" disabled>
+                            Receive Ack
+                        </button>
+                    </div>
+                    <div id="connectionControls">
+                        <button id="connectBtn" type="button">Connect</button>
+                        <button id="disconnectBtn" type="button" hidden>
+                            Disconnect
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =====================================================
+            RIGHT SIDE
+            Existing Socket.IO project
+            ===================================================== -->
+            <section id="existingWorkspace">
+                <!-- Existing messages -->
+                <ul id="messages"></ul>
+            </section>
+        </main>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="module" src="/js/socket/index.js"></script>
+    </body>
+</html>

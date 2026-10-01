@@ -1,0 +1,390 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+        sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+#appLayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+#newWorkspace {
+    min-width: 0;
+    padding: 2rem;
+    border-right: 3px solid #d5d9df;
+}
+
+.workspaceHeader {
+    margin-bottom: 1.5rem;
+}
+
+.workspaceHeader h1 {
+    margin: 0 0 0.35rem;
+    font-size: 1.5rem;
+}
+
+.workspaceHeader p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* New form */
+
+#dataFormSection {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+    width: min(100% - 2rem, 900px);
+}
+
+#dataFormSection h2 {
+    margin: 0 0 1.25rem;
+    font-size: 1.15rem;
+    color: #222;
+}
+
+/* Form layout */
+#dataForm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+/* Individual field */
+.formField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.formFieldFull {
+    grid-column: 1 / -1;
+}
+
+.formField label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Text / URL inputs */
+.formField input[type="text"],
+.formField input[type="url"] {
+    width: 100%;
+    height: 2.75rem;
+    padding: 0 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+    color: #222;
+}
+
+.formField input[type="text"]:focus,
+.formField input[type="url"]:focus {
+    outline: none;
+    border-color: #4f8cff;
+    box-shadow: 0 0 0 3px rgb(79 140 255 / 12%);
+}
+
+/* File inputs */
+.formField input[type="file"] {
+    width: 100%;
+    min-height: 2.6rem;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f8f9fa;
+    color: #444;
+    cursor: pointer;
+    font: inherit;
+}
+
+.formField input[type="file"]::file-selector-button {
+    margin-right: 0.6rem;
+    padding: 0.45rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background: #e9ecef;
+    color: #333;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.formField input[type="file"]::file-selector-button:hover {
+    background: #e1e5ea;
+}
+
+/* New send button */
+#sendDataBtn {
+    grid-column: 1 / -1;
+
+    height: 2.7rem;
+    padding: 0 1.25rem;
+
+    border: none;
+    border-radius: 2rem;
+
+    background: #4f8cff;
+    color: #fff;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    font: inherit;
+    transition:
+        background 0.15s ease,
+        opacity 0.15s ease;
+}
+
+#sendDataBtn:hover:not(:disabled) {
+    background: #3578e5;
+}
+
+#sendDataBtn:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#newWorkspace #controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: rgb(255 255 255 / 96%);
+    border-top: 1px solid #ddd;
+    backdrop-filter: blur(10px);
+    inset: auto 0 0;
+}
+
+#newWorkspace #input {
+    flex: 1 1 180px;
+    min-width: 150px;
+    height: 2.75rem;
+    padding: 0 1rem;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    background: #fff;
+    color: #222;
+}
+
+#input:focus {
+    outline: none;
+    border-color: #4f8cff;
+}
+
+#input:disabled {
+    background: #e9ecef;
+    color: #888;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+#newWorkspace #messageControls {
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+/* Message buttons */
+#messageControls button {
+    height: 2.75rem;
+    padding: 0 1rem;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+        background 0.15s ease,
+        opacity 0.15s ease;
+}
+
+/* Disabled message buttons */
+#messageControls button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Broadcast All */
+#sendAllBtn {
+    background: #333;
+}
+
+#sendAllBtn:hover:not(:disabled) {
+    background: #111;
+}
+
+/* Broadcast Others */
+#sendOthersBtn {
+    background: #4f8cff;
+}
+
+#sendOthersBtn:hover:not(:disabled) {
+    background: #3578e5;
+}
+
+/* Send Only Sender */
+#sendSenderBtn {
+    background: #6f42c1;
+}
+
+#sendSenderBtn:hover:not(:disabled) {
+    background: #5a32a3;
+}
+
+/* Acknowledgement */
+#sendAckBtn {
+    background: #17a2b8;
+}
+
+#sendAckBtn:hover:not(:disabled) {
+    background: #138496;
+}
+
+#receiveAckBtn {
+    background: #20c997;
+}
+
+#receiveAckBtn:hover:not(:disabled) {
+    background: #1aa179;
+}
+
+/* Connection State Recovery */
+#csrTestStartBtn,
+#csrTestStopBtn {
+    background: #fd7e14;
+}
+
+#csrTestStartBtn:hover:not(:disabled),
+#csrTestStopBtn:hover:not(:disabled) {
+    background: #e96b02;
+}
+
+/* Connection controls */
+#newWorkspace #connectionControls {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.35rem;
+    margin-left: auto;
+}
+
+#connectionControls button {
+    height: 2.75rem;
+    padding: 0 1.25rem;
+    border: none;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#connectBtn {
+    background: #28a745;
+}
+
+#connectBtn:hover {
+    background: #218838;
+}
+
+#disconnectBtn {
+    background: #dc3545;
+}
+
+#disconnectBtn:hover {
+    background: #c82333;
+}
+
+#existingWorkspace {
+    position: relative;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 2rem;
+    padding-bottom: 10rem;
+}
+
+#existingWorkspace #messages {
+    min-height: auto;
+    padding: 1rem 0;
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+}
+
+#messages > li {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
+}
+
+#messages > li:nth-child(odd) {
+    background: #eef1f5;
+}
+
+#messages.disconnected {
+    opacity: 0.6;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+    #appLayout {
+        grid-template-columns: 1fr;
+    }
+
+    #newWorkspace {
+        border-right: none;
+        border-bottom: 3px solid #d5d9df;
+    }
+
+    #existingWorkspace {
+        min-height: 700px;
+    }
+}
+
+@media (max-width: 700px) {
+    #newWorkspace,
+    #existingWorkspace {
+        padding: 1rem;
+    }
+
+    #dataForm {
+        grid-template-columns: 1fr;
+    }
+
+    .formFieldFull {
+        grid-column: auto;
+    }
+
+    #sendDataBtn {
+        width: 100%;
+    }
+}
