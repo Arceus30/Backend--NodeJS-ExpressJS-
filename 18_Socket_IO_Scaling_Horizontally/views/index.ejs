@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%= title %></title>
+    </head>
+    <body>
+        <h1>Socket.IO Horizontal Scaling Lab</h1>
+        <p>Open this page in multiple tabs.</p>
+        <p>Watch the server PID to see which worker handled the message.</p>
+        <hr />
+        <h2>Rooms</h2>
+        <button id="joinRoomA">Join Room A</button>
+        <button id="joinRoomB">Join Room B</button>
+        <br /><br />
+        <button id="leaveRoomA">Leave Room A</button>
+        <button id="leaveRoomB">Leave Room B</button>
+        <p>
+            Current room:
+            <strong id="currentRoom">None</strong>
+        </p>
+        <form id="roomForm">
+            <input
+                id="roomInput"
+                autocomplete="off"
+                placeholder="Room message..."
+            />
+            <button>Send to Room</button>
+        </form>
+        <form id="form">
+            <input
+                id="input"
+                autocomplete="off"
+                placeholder="Type a message..."
+            />
+            <button>Send</button>
+        </form>
+        <ul id="messages"></ul>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="module" src="/js/index.js"></script>
+    </body>
+</html>
