@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TaskVault - Tasks</title>
+</head>
+
+
+<body>
+    <h1>TaskVault</h1>
+    <h2>
+        Welcome, <%= user.username %>
+    </h2>
+    <a href="/tasks/new">
+        Create New Task
+    </a>
+    <hr>
+    <% if (tasks.length === 0) { %>
+        <p>
+            You don't have any tasks yet.
+        </p>
+    <% } %>
+    <% tasks.forEach(task => { %>
+        <article>
+            <h2>
+                <%= task.title %>
+            </h2>
+            <p>
+                <%= task.description %>
+            </p>
+            <% if (task.attachment) { %>
+                <p>
+                    Attachment:
+                    <%= task.attachment.originalName %>
+                </p>
+            <% } %>
+
+            <a href="/tasks/<%= task._id %>/edit">
+                Edit
+            </a>
+            <br>
+            <br>
+            <!--
+                method="POST" is used because browsers
+                don't natively support DELETE in forms.
+                method-override sees:
+                    ?_method=DELETE
+                and changes the request method to:
+                    DELETE /tasks/:id
+            -->
+            <form
+                method="POST"
+                action="/tasks/<%= task._id %>?_method=DELETE"
+            >
+                <button type="submit">
+                    Delete
+                </button>
+            </form>
+            <hr>
+        </article>
+    <% }); %>
+    <form method="POST" action="/logout">
+        <button type="submit">
+            Logout
+        </button>
+    </form>
+</body>
+</html>

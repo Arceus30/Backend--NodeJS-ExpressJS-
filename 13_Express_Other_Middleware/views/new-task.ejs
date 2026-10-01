@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>New Task</title>
+    </head>
+
+    <body>
+        <h1>Create Task</h1>
+        <!--
+        IMPORTANT:
+        Because this form contains a file input,
+        we MUST use:
+            enctype="multipart/form-data"
+        Without it, the file will not be uploaded
+        correctly.
+    -->
+        <form method="POST" action="/tasks" enctype="multipart/form-data">
+            <div>
+                <label for="title"> Title </label>
+                <br />
+                <input type="text" id="title" name="title" required />
+            </div>
+            <br />
+            <div>
+                <label for="description"> Description </label>
+                <br />
+                <textarea
+                    id="description"
+                    name="description"
+                    required
+                ></textarea>
+            </div>
+            <br />
+            <div>
+                <label for="attachment"> Attachment </label>
+                <br />
+                <input type="file" id="attachment" name="attachment" />
+            </div>
+            <br />
+            <button type="submit">Create Task</button>
+        </form>
+        <br />
+        <a href="/tasks"> Back to tasks </a>
+    </body>
+</html>

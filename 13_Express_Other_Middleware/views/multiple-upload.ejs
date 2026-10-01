@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Multiple Upload</title>
+    </head>
+    <body>
+        <h1>Upload Multiple Files</h1>
+        <!--
+        "multiple" allows the user to select
+        more than one file.
+        -->
+        <form
+            method="POST"
+            action="/tasks/<%= task._id %>/attachments"
+            enctype="multipart/form-data"
+        >
+            <input type="file" name="attachments" multiple />
+            <br />
+            <br />
+            <button type="submit">Upload</button>
+        </form>
+        <br />
+        <a href="/tasks"> Back </a>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Direct Cloud Upload</title>
+    </head>
+    <body>
+        <!--
+        We store the Cloudinary configuration as HTML data attributes.
+        This avoids needing an inline <script>, which Helmet's CSP blocks.
+        -->
+        <div
+            id="cloud-upload"
+            data-cloud-name="zgnv4hvs"
+            data-upload-preset="taskvault_unsigned"
+        >
+            <h1>Direct Browser → Cloudinary Upload</h1>
+            <p>The file will go directly from this browser to Cloudinary.</p>
+            <p>Express will NOT receive the file.</p>
+            <input type="file" id="fileInput" />
+            <br />
+            <br />
+            <button id="uploadButton">Upload directly to Cloudinary</button>
+            <p id="status"></p>
+        </div>
+        <!--
+        JavaScript is now an external file. Because it is served from our own server:
+        /public/js/cloud-upload.js
+        Helmet's: script-src 'self' allows it.
+        -->
+        <script src="/js/cloud-upload.js" defer></script>
+    </body>
+</html>

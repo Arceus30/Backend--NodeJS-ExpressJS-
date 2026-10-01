@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Edit Task</title>
+    </head>
+    <body>
+        <h1>Edit Task</h1>
+        <!-- 
+        The browser form uses POST. Why?
+        Normal HTML forms historically support: GET, POST
+        They don't directly provide: PUT, PATCH, DELETE
+        So we're going to send: POST /tasks/:id?_method=PUT
+        and method-override will make Express treat it as: PUT /tasks/:id
+        -->
+        <form method="POST" action="/tasks/<%= task._id %>?_method=PUT">
+            <div>
+                <label for="title"> Title </label>
+                <br />
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value="<%= task.title %>"
+                    required
+                />
+            </div>
+            <br />
+            <div>
+                <label for="description"> Description </label>
+                <br />
+                <textarea id="description" name="description" required>
+<%= task.description %></textarea
+                >
+            </div>
+            <br />
+            <button type="submit">Save Changes</button>
+        </form>
+        <br />
+        <a href="/tasks"> Cancel </a>
+    </body>
+</html>
